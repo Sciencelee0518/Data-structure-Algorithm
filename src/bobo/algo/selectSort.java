@@ -8,10 +8,32 @@ public class selectSort {
     }
     public static Integer [] testsort(Integer [] arr) {
         for(int i=0;i<arr.length;i++) {
-          for(int j=i+1;j<arr.length && arr[j]<arr[i] ;j++){
-                 swap(arr,i,j);
+            int minIndex=i;
+          for(int j=i+1;j<arr.length ;j++){
+              if(arr[j]<arr[minIndex]){
+                  minIndex=j;
+              }
           }
+            swap(arr,i,minIndex);
         }
       return arr;
+    }
+    public static Integer [] insertSort(Integer [] arr){
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=i+1;j>0;j--){
+                if(arr[j]<arr[j-1])
+                    swap(arr,j,j-1);
+            }
+        }
+        return arr;
+    }
+    public static Integer [] bubbleSort(Integer [] arr){
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr.length-1;j++){
+                if(arr[j]>arr[j+1])
+                    swap(arr,j,j+1);
+            }
+        }
+        return arr;
     }
 }
