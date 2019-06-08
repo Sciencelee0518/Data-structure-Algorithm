@@ -18,15 +18,26 @@ public class selectSort {
         }
       return arr;
     }
-    public static Integer [] insertSort(Integer [] arr){
-        for(int i=0;i<arr.length-1;i++){
-            for(int j=i+1;j>0;j--){
+     /*    public static Integer [] insertSort(Integer [] arr, int l,int r){
+        for(int i=l;i<r-1;i++){
+            for(int j=i+1;j>l;j--){
                 if(arr[j]<arr[j-1])
                     swap(arr,j,j-1);
             }
         }
         return arr;
+    }*/
+    public static void sort(Comparable[] arr, int l, int r){
+
+        for( int i = l + 1 ; i <= r ; i ++ ){
+            Comparable e = arr[i];
+            int j = i;
+            for( ; j > l && arr[j-1].compareTo(e) > 0 ; j--)
+                arr[j] = arr[j-1];
+            arr[j] = e;
+        }
     }
+
     public static Integer [] bubbleSort(Integer [] arr){
         for(int i=0;i<arr.length;i++){
             for(int j=0;j<arr.length-1;j++){
@@ -34,6 +45,20 @@ public class selectSort {
                     swap(arr,j,j+1);
             }
         }
+        return arr;
+    }
+    private static  void mSort(Integer [] arr,int l ,int r){
+        if(r-l<=1){
+            sort(arr,l,r);
+            return ;
+        }
+        int m=l+(r-l)/2;
+        mSort(arr,l,m);
+        mSort(arr,m+1,r);
+        return ;
+    }
+    public static Integer [] mergeSort(Integer [] arr){
+        mSort(arr,0,arr.length-1);
         return arr;
     }
 }
