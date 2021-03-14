@@ -1,0 +1,30 @@
+# 树
+
+树是一种典型的非结构化数据，常用于迭代计算。
+
+## 二叉树的遍历
+
+#### [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+      def __init__(self)
+          self.list1 = []          ## 空列表
+      def inorderTraversal(self, root: TreeNode) -> List[int]:
+          self.mid(root)
+          return self.list1
+      def mid(self,root: TreeNode):
+          if root is None:
+              return None
+          self.inorderTraversal(root.left)
+          #print(root.val)
+          self.list1.append(root.val)
+          self.inorderTraversal(root.right)
+```
+
